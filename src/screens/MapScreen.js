@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Dimensions, Animated } from 'react-native';
-import Svg, { G, Text, Path, Rect } from 'react-native-svg';
+import Svg, { G } from 'react-native-svg';
 
 import Map from '../svg/map'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import Svg, { G, Text, Path, Rect } from 'react-native-svg';
+import { G, Path } from 'react-native-svg';
 
 export default (
   <G>
