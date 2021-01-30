@@ -42,8 +42,11 @@ export default class MapScreen extends Component {
     constrain: true,
     constraints: {
       combine: 'dynamic',
-      scaleExtent: [1, 4],
-      translateExtent: [[0, 0], [1333, 1333]],
+			scaleExtent: [1, 4],
+      translateExtent: [
+				[0, 700],			//[minX - fx, minY - fy]
+				[1333, 700],	//[maxX + fx, maxY + fy]
+			],
     },
   };
 
@@ -72,6 +75,8 @@ export default class MapScreen extends Component {
           vbHeight={1333}
           width={width}
           height={height}
+					doubleTapThreshold={300}
+					doubleTapZoom={4}
           meetOrSlice="meet"
           svgRoot={SvgRoot}
           childProps={this.childProps}
@@ -87,24 +92,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#ecf0f1',
 	},
 });
-
-// const ZOOM_MULT = 1;
-
-// const MapScreen = ()=> {
-//   return (
-//     <SafeAreaView style={{ flex: 1 }}>
-//       <Svg viewBox={`0 0 ${1333.3333 / ZOOM_MULT} ${1333.3333 / ZOOM_MULT}`}>
-        
-					
-//       </Svg>
-//     </SafeAreaView>
-//   )
-// }
-
-// const styles = StyleSheet.create({
-//   map: {
-//     backgroundColor: "green",
-//   },
-// })
-
-// export default MapScreen;
