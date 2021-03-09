@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Dimensions, Animated } from 'react-native';
-import Svg, { G } from 'react-native-svg';
+import Svg, { G, Circle, Path, Rect } from 'react-native-svg';
 
 import Map from '../svg/map'
 
-import ZoomableSvg from 'zoomable-svg';
-
+import ZoomableSvg from 'ns-zoomable-svg';
 const { width, height } = Dimensions.get('window');
 
 class SvgRoot extends Component {
-  state = {
-    color: 'red',
-    initAnim: new Animated.Value(0),
-  };
-
   render() {
     const { transform } = this.props;
     return (
@@ -21,7 +15,7 @@ class SvgRoot extends Component {
         <G transform={transform}>
 					
 					{Map}
-					
+
         </G>
       </Svg>
     );
@@ -50,21 +44,6 @@ export default class MapScreen extends Component {
     },
   };
 
-  onToggle = () =>
-    this.setState(({ type, constraints }) => {
-      const nextType = (type + 1) % constraintCombinations.length;
-      return {
-        type: nextType,
-        constrain: nextType !== 0,
-        constraints: {
-          ...constraints,
-          combine: constraintCombinations[nextType],
-        },
-      };
-    });
-
-  childProps = { onToggle: this.onToggle };
-
   render() {
     const { constrain, constraints } = this.state;
     return (
@@ -82,6 +61,7 @@ export default class MapScreen extends Component {
           childProps={this.childProps}
           constrain={constrain ? constraints : null}
         />
+
       </View>
     );
   }
