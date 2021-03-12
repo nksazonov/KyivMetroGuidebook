@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, StyleSheet, Dimensions } from 'react-native'
 import Svg, { G } from 'react-native-svg';
-import ZoomableSvg from 'ns-zoomable-svg';
+import ZoomableSvg from 'zoomable-svg';
 
 import map from '../svg/map'
 
