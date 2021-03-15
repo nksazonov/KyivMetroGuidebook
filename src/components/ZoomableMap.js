@@ -3,7 +3,7 @@ import { View, StyleSheet, Dimensions } from 'react-native'
 import Svg, { G } from 'react-native-svg';
 import ZoomableSvg from 'zoomable-svg';
 
-import SVGMap from '../svg/map'
+import SVGMap from './map/Map'
 
 const { width, height } = Dimensions.get('window');
 

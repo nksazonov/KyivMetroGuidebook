@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
-import Map from '../components/Map'
+import ZoomableMap from '../components/ZoomableMap'
 
 export default class MapScreen extends Component {
 
   render() {
     return (
         <View>
-          <Map />
+          <ZoomableMap />
         </View>
     );
   }
