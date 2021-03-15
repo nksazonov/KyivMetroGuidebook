@@ -44,7 +44,7 @@ export default class Map extends Component {
             vbHeight={1333}
             width={width}
             height={height}
-            doubleTapThreshold={300}
+            doubleTapThreshold={200}
             doubleTapZoom={4}
             meetOrSlice="meet"
             svgRoot={SvgRoot}
