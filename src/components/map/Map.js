@@ -217,53 +217,14 @@ export default class SVGMap extends Component {
   }
 
   render() {
-    const stationsText = stations.map(station => <MapText key={station.id} station={station} onPress={() => console.log(station.id)} />)
+    const stationsText = stations.map((station, num) => <MapText key={num} station={station} onPress={() => console.log(station.id)} />)
 
     return (
       <G>
         <SvgCss xml={xml} width="100%" height="100%" />
   
         { stationsText }
-        
-        <Text fontSize="19" fill="#000" x="783.66168" y="57.471287">Героїв Дніпра</Text>
-        <Text fontSize="19" fill="#000" x="783.66168" y="121.9212">Мінська</Text>
-        <Text fontSize="19" fill="#000" x="783.08112" y="185.96062">Оболонь</Text>
-        <Text fontSize="19" fill="#000" x="783.08112" y="250.82101">Почайна</Text>
-        <Text fontSize="19" fill="#000" x="783.08112" y="307.88177">Тараса Шевченка</Text>
-        <Text fontSize="19" fill="#000" x="783.08112" y="372.74219">Контрактова площа</Text>
-        <Text fontSize="19" fill="#000" x="783.08112" y="436.5928">Поштова площа</Text>
-        <Text fontSize="19" fill="#000" x="783.08112" y="512.14899">Майдан Незалежності</Text>
-        <Text fontSize="19" fill="#000" x="594.65747" y="669.95068">Площа</Text>
-        <Text fontSize="19" fill="#000" x="530.03979" y="686.89374">Льва Толстого</Text>
-        <Text fontSize="19" fill="#000" x="506.81784" y="758.30109">Олімпійська</Text>
-        <Text fontSize="19" fill="#000" x="559.64771" y="814.61414">Палац</Text>
-        <Text fontSize="19" fill="#000" x="538.49854" y="831.62006">«Україна»</Text>
-        <Text fontSize="19" fill="#000" x="524.81482" y="871.7981">Либідська</Text>
-        <Text fontSize="19" fill="#000" x="461.82544" y="945.52759">Деміївська</Text>
-        <Text fontSize="19" fill="#000" x="407.83453" y="985.58539">Голосіївська</Text>
-        <Text fontSize="19" fill="#000" x="350.94089" y="1027.9653">Васильківська</Text>
-        <Text fontSize="19" fill="#000" x="264.72958" y="1068.6036">Виставковий центр</Text>
-        <Text fontSize="19" fill="#000" x="372.71143" y="1144.6553">Іподром</Text>
-        <Text fontSize="19" fill="#000" x="270.53506" y="1144.6553">Теремки</Text>
 
-
-        <Text fontSize="19" fill="#000" x="467.15924" y="311.16583">Сирець</Text>
-        <Text fontSize="19" fill="#000" x="528.73553" y="358.1691">Дорогожичі</Text>
-        <Text fontSize="19" fill="#000" x="578.61243" y="409.48273">Лук’янівська</Text>
-        <Text fontSize="19" fill="#000" x="651.27252" y="496.71591">Золоті</Text>
-        <Text fontSize="19" fill="#000" x="651.27252" y="514.36774">Ворота</Text>
-        <Text fontSize="19" fill="#000" x="739.12146" y="686.98688">Палац спорту</Text>
-        <Text fontSize="19" fill="#000" x="783.45642" y="758.00488">Кловська</Text>
-        <Text fontSize="19" fill="#000" x="783.45642" y="815.47614">Печерська</Text>
-        <Text fontSize="19" fill="#000" x="783.45642" y="872.00616">Дружби народів</Text>
-        <Text fontSize="19" fill="#000" x="698.97906" y="961.20233">Видубичі</Text>
-        <Text fontSize="19" fill="#000" x="790.125" y="1055.8315">Славутич</Text>
-        <Text fontSize="19" fill="#000" x="832.505" y="1104.017">Осокорки</Text>
-        <Text fontSize="19" fill="#000" x="992.4458" y="1144.6553">Позняки</Text>
-        <Text fontSize="19" fill="#000" x="1082.4305" y="1144.6553">Харківська</Text>
-        <Text fontSize="19" fill="#000" x="1055.4351" y="1072.6675">Вирлиця</Text>
-        <Text fontSize="19" fill="#000" x="1045.941" y="1031.0732">Бориспільська</Text>
-        <Text fontSize="19" fill="#000" x="1073.4811" y="987.68469">Червоний Хутір</Text>
       </G>
     )
   }
