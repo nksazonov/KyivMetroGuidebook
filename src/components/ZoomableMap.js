@@ -58,6 +58,6 @@ export default class Map extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#ecf0f1',
+    backgroundColor: '#fcfcfc',
 	},
 });
