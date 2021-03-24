@@ -30,16 +30,16 @@ const setArrival = dispatch => (stationId) => {
   dispatch({ type: 'set_arrival', payload: stationId });
 }
 
-const setRouteStation = () => (stationId, departure, arrival) => {
+const setRouteStation = (dispatch) => (stationId, departure, arrival) => {
   if (!departure) {
-    setDeparture(stationId);
+    dispatch({ type: 'set_departure', payload: stationId });
     return;
   } else {
     if (!arrival) {
-      setArrival(stationId);
+      dispatch({ type: 'set_arrival', payload: stationId });
       return;
     } else {
-      setActive(stationId);
+      dispatch({ type: 'set_active', payload: stationId });
     }
   }
 }
