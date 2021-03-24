@@ -3,7 +3,7 @@ import { View, Text, Button, StyleSheet } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import colors from '.././styles/colors'
 
-const SelectStation = ({ style, stName, lineColor, cancellable, onPress, onCancel }) => {
+const SelectStation = ({ style, stName, lineColor, onPress, onCancel }) => {
   return (
     <View
       style={{ ...styles.container, ...style }}
@@ -12,7 +12,7 @@ const SelectStation = ({ style, stName, lineColor, cancellable, onPress, onCance
       <View style={{ ...styles.line, backgroundColor: lineColor}} />
       <Text numberOfLines={1} style={ styles.text }>{stName}</Text>
 
-      { cancellable
+      { onCancel
       ?
       <FontAwesome5
         name="times"
