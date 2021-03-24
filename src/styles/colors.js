@@ -1,4 +1,4 @@
-export default colors = {
+export default {
   lightgrey: "#f0f0f0",
   grey: "#bfbfbf",
   darkblue: "#323232",
