@@ -24,26 +24,31 @@ const SelectStation = ({ style, stName, lineColor, cancellable, onPress, onCance
     </View>
   )
 }
-
+//TODO: add "remove" button shadow on station name
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 5,
+    padding: 10,
     borderRadius: 5,
     backgroundColor: colors.lightgrey,
     overflow: 'hidden',
+    position: 'relative'
   },
   line: {
     width: 10,
     height: 10,
     borderRadius: 5,
-    marginRight: 5,
+    marginRight: 8,
   },
   cancelIcon: {
+    color: colors.grey,
     fontSize: 12,
     flex: 1,
-    color: colors.grey
+    position: 'absolute',
+    right: 0,
+    backgroundColor: colors.lightgrey,
+    padding: 10,
   },
   text: {
     fontSize: 17,
