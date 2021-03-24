@@ -2,19 +2,19 @@
   {
     "name": "Святошинсько-Броварська",
     "short_name": "M1",
-    "number": 1,
+    "id": 1,
     "color": "#e33123"
   },
   {
     "name": "Оболонсько-Теремківська",
     "short_name": "M2",
-    "number": 2,
+    "id": 2,
     "color": "#2382bf"
   },
   {
     "name": "Сирецько-Печерська",
     "short_name": "M3",
-    "number": 3,
+    "id": 3,
     "color": "#2eb75d"
   }
 ]
