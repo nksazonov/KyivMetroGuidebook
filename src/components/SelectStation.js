@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
+import colors from '.././styles/colors'
 
 const SelectStation = ({ style, stName, lineColor, cancellable, onPress, onCancel }) => {
   return (
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 5,
     borderRadius: 5,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: colors.lightgrey,
     overflow: 'hidden',
   },
   line: {
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
   cancelIcon: {
     fontSize: 12,
     flex: 1,
-    color: '#bfbfbf'
+    color: colors.grey
   },
   text: {
     fontSize: 17,
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
     flex: 10,
     marginRight: 5,
+    color: colors.darkblue
   }
 })
 
