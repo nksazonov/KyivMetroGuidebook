@@ -15,7 +15,8 @@ export default MapText = ({ station, onPress, onLongPress }) => {
       onPress={onPress}
       onLongPress={onLongPress}>
 
-        {station.name}
+        {/* By default display_text = name */}
+        {station.display_text ? station.display_text : station.name}
 
     </Text>
   )
