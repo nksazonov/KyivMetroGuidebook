@@ -3,6 +3,7 @@ import { View, StyleSheet } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 
 import SelectStation from './SelectStation'
+import colors from '.././styles/colors'
 
 const DestStationsBar = ({ style }) => {
   return (
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     alignSelf: 'center',
     textAlign: 'center',
-    color: '#bfbfbf',
+    color: colors.grey,
   },
   selectSt: {
     flex: 5,
