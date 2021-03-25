@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet } from 'react-native'
+import { View, Text, TouchableHighlight, StyleSheet } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import colors from '.././styles/colors'
 
@@ -13,13 +13,19 @@ const SelectStation = ({ style, stName, lineColor, onPress, onCancel }) => {
       <Text numberOfLines={1} style={ styles.text }>{stName}</Text>
 
       { onCancel
-      ?
-      <FontAwesome5
-        name="times"
-        style={ styles.cancelIcon }
-        onPress={onCancel}
-      />
-      : null
+        ?
+        <TouchableHighlight
+          style={styles.cancelIconContainer}
+          activeOpacity={0.65}
+          underlayColor={colors.grey}
+          onPress={onCancel}
+        >
+          <FontAwesome5
+            name="times"
+            style={ styles.cancelIcon }
+          />
+        </TouchableHighlight>
+        : null
       }
     </View>
   )
@@ -41,14 +47,19 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginRight: 8,
   },
+  cancelIconContainer: {
+    width: 25,
+    height: 25,
+    borderRadius: 30,
+  },
   cancelIcon: {
     color: colors.grey,
-    fontSize: 12,
-    flex: 1,
-    position: 'absolute',
-    right: 0,
+    fontSize: 15,
     backgroundColor: colors.lightgrey,
-    padding: 10,
+    flex: 1,
+    borderRadius: 30,
+    textAlign: 'center',
+    lineHeight: 25
   },
   text: {
     fontSize: 17,
