@@ -32,16 +32,22 @@ const setArrival = dispatch => (stationId) => {
 
 const setRouteStation = (dispatch) => (stationId, departure, arrival) => {
   if (!departure) {
+    if (stationId === arrival)
+     return;
+
     dispatch({ type: 'set_departure', payload: stationId });
     return;
-  } else {
-    if (!arrival) {
-      dispatch({ type: 'set_arrival', payload: stationId });
-      return;
-    } else {
-      dispatch({ type: 'set_active', payload: stationId });
-    }
   }
+
+  if (!arrival) {
+    if (stationId === departure)
+     return;
+
+    dispatch({ type: 'set_arrival', payload: stationId });
+    return;
+  }
+
+  dispatch({ type: 'set_active', payload: stationId });
 }
 
 export const { Provider, Context } = createDataContext(
