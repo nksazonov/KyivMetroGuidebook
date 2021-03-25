@@ -30,7 +30,10 @@ const SelectStation = ({ style, stName, lineColor, onPress, onCancel }) => {
     </View>
   )
 }
+
 //TODO: add "remove" button shadow on station name
+// https://www.npmjs.com/package/react-native-linear-gradient
+
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
