@@ -2,6 +2,8 @@ import React from 'react'
 import { View, Text, TouchableHighlight, StyleSheet } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import colors from '.././styles/colors'
+import Highlightable from './common/Highlightable'
+import dimensions from '../styles/dimensions'
 
 const SelectStation = ({ style, stName, lineColor, onPress, onCancel }) => {
   return (
@@ -14,17 +16,14 @@ const SelectStation = ({ style, stName, lineColor, onPress, onCancel }) => {
 
       { onCancel
         ?
-        <TouchableHighlight
-          style={styles.cancelIconContainer}
-          activeOpacity={0.65}
-          underlayColor={colors.grey}
+        <Highlightable
           onPress={onCancel}
         >
           <FontAwesome5
             name="times"
             style={ styles.cancelIcon }
           />
-        </TouchableHighlight>
+        </Highlightable>
         : null
       }
     </View>
@@ -39,6 +38,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     padding: 10,
+    paddingRight: 5,
     borderRadius: 5,
     backgroundColor: colors.lightgrey,
     overflow: 'hidden',
@@ -50,19 +50,12 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     marginRight: 8,
   },
-  cancelIconContainer: {
-    width: 25,
-    height: 25,
-    borderRadius: 30,
-  },
   cancelIcon: {
     color: colors.grey,
     fontSize: 15,
-    backgroundColor: colors.lightgrey,
     flex: 1,
     borderRadius: 30,
     textAlign: 'center',
-    lineHeight: 25
   },
   text: {
     fontSize: 17,
@@ -70,7 +63,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     fontFamily: 'Roboto',
     flex: 10,
-    marginRight: 5,
     color: colors.darkblue
   }
 })
