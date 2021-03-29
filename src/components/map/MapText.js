@@ -1,8 +1,8 @@
 import React from 'react'
 import { Text } from 'react-native-svg'
 
-export default MapText = ({ station, onPress, onLongPress }) => {
-  const [ x, y ] = station['text-coords'];
+export default MapText = ({ text, coords, onPress, onLongPress }) => {
+  const [ x, y ] = coords;
   return (
     <Text
       fontSize="19"
@@ -15,8 +15,7 @@ export default MapText = ({ station, onPress, onLongPress }) => {
       onPress={onPress}
       onLongPress={onLongPress}>
 
-        {/* By default display_text = name */}
-        {station.display_text ? station.display_text : station.name}
+        { text }
 
     </Text>
   )

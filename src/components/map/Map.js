@@ -218,7 +218,19 @@ export default class SVGMap extends Component {
 
   render() {
     const { state: { departure, arrival }, setRouteStation, setActive } = this.context;
-    const stationsText = stations.map((station, num) => <MapText key={num} station={station} onPress={() => setRouteStation(station.id, departure, arrival)} onLongPress={() => setActive(station.id)} />)
+    const stationsText = stations.flatMap(
+      (station, num) => station.render.map(
+        (renderObj, renderNum) => (
+          <MapText
+            key={ num + '_' + renderNum }
+            text={ renderObj.text ? renderObj.text : station.name }
+            coords={ renderObj.coords }
+            onPress={() => setRouteStation(station.id, departure, arrival)}
+            onLongPress={() => setActive(station.id)}
+          />
+        )
+      )
+    );
 
     return (
       <G>
