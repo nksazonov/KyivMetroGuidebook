@@ -18,6 +18,7 @@ const MapScreen = () => {
           {
             selecting
             ?
+            //TODO: slide from&to bottom animation
             <SearchStationBlock style={[ styles.searchStationBlock, (selecting && { display: 'flex', bottom: 0 }) ]}
               onCancel={() => setSelecting('')}
               searchText={ useSelecting(selecting) }
