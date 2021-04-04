@@ -1,13 +1,19 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
+import Ripple from 'react-native-material-ripple';
 import colors from '../styles/colors'
 import dimensions from '../styles/dimensions'
 import Highlightable from './common/Highlightable'
 
 const StationItem = ({ style, stName, lineColor, onPress, onInfoPress }) => {
   return (
-    <View style={[ styles.container, style ]}>
+    <Ripple
+      rippleColor={ colors.grey }
+      rippleOpacity={ .7 }
+      style={[ styles.container, style ]}
+      onPress={onPress}
+    >
       <View style={ styles.lineContainer }>
         <View style={{ ...styles.line, backgroundColor: lineColor}}/>
       </View>
@@ -16,7 +22,8 @@ const StationItem = ({ style, stName, lineColor, onPress, onInfoPress }) => {
         { stName }
       </Text> 
 
-      { onInfoPress
+      { //TODO: fix appearing ripple on click
+        onInfoPress
         ? <Highlightable
             onPress={onInfoPress}
             underlayColor={ colors.lightgrey }
@@ -29,7 +36,7 @@ const StationItem = ({ style, stName, lineColor, onPress, onInfoPress }) => {
           </Highlightable>
         : null
       }
-    </View>
+    </Ripple>
   )
 }
 

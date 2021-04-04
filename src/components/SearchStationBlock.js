@@ -11,7 +11,7 @@ import Highlightable from './common/Highlightable'
 
 const stations = require('../data/stations.json');
 
-const SearchStationBlock = ({ style, onCancel, searchText }) => {
+const SearchStationBlock = ({ style, onSelect, onCancel, searchText }) => {
   const [ search, setSearch ] = useState('');
 
   return (
@@ -48,6 +48,7 @@ const SearchStationBlock = ({ style, onCancel, searchText }) => {
             style={ styles.stationItem }
             stName={ item.name }
             lineColor={ getLine(Math.floor(item.id / 100)).color }
+            onPress={() => onSelect(item.id)}
             onInfoPress={() => {}}
           />
          )}}
