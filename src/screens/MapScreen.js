@@ -5,6 +5,7 @@ import { vw, vh } from 'react-native-css-vh-vw'
 import DestStationsBar from '../components/DestStationsBar'
 import SearchStationBlock from '../components/SearchStationBlock'
 import { Context as RouteContext } from '../context/RouteContext'
+import { useSelecting } from '../hooks/useSelecting'
 
 const MapScreen = () => {
     const { state: { selecting }, setSelecting } = useContext(RouteContext);
@@ -13,9 +14,17 @@ const MapScreen = () => {
         <View style={styles.container}>
           <ZoomableMap />
           <DestStationsBar style={ styles.destStationsBar } />
-          <SearchStationBlock style={[ styles.searchStationBlock, (selecting && { display: 'flex', bottom: 0 }) ]}
-            onCancel={() => setSelecting('')}
-          />
+
+          {
+            selecting
+            ?
+            <SearchStationBlock style={[ styles.searchStationBlock, (selecting && { display: 'flex', bottom: 0 }) ]}
+              onCancel={() => setSelecting('')}
+              searchText={ useSelecting(selecting) }
+            />
+            : null
+          }
+          
         </View>
     );
 }

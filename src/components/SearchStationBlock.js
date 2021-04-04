@@ -11,7 +11,7 @@ import Highlightable from './common/Highlightable'
 
 const stations = require('../data/stations.json');
 
-const SearchStationBlock = ({ style, onCancel }) => {
+const SearchStationBlock = ({ style, onCancel, searchText }) => {
   const [ search, setSearch ] = useState('');
 
   return (
@@ -23,7 +23,7 @@ const SearchStationBlock = ({ style, onCancel }) => {
 
         <SearchBar
           style={ styles.searchBar }
-          placeholder='Звідки'
+          placeholder={ searchText }
           value={ search }
           onChangeText={ setSearch }
         />
