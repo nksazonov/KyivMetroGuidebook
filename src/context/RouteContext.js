@@ -38,6 +38,8 @@ const setSelecting = dispatch => (type) => {
 }
 
 const setRouteStation = (dispatch) => (stationId, departure, arrival) => {
+  dispatch({ type: 'set_selecting', payload: '' });
+
   if (!departure) {
     if (stationId === arrival)
      return;
@@ -54,7 +56,7 @@ const setRouteStation = (dispatch) => (stationId, departure, arrival) => {
     return;
   }
 
-  dispatch({ type: 'set_active', payload: stationId });
+  dispatch({ type: 'set_active', payload: stationId }); //is it needed?
 }
 
 export const { Provider, Context } = createDataContext(
