@@ -41,6 +41,7 @@ const SearchStationBlock = ({ style, onSelect, onCancel, searchText }) => {
       </View>
 
       <FlatList
+        keyboardShouldPersistTaps='handled'
         data={ stations.filter(item => item.name.split(' ').some(word => word.toLowerCase().startsWith(search.toLowerCase()))) }
         renderItem={ ({ item }) => {
           return (
