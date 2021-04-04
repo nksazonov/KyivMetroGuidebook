@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, TouchableHighlight, StyleSheet } from 'react-native'
+import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import colors from '.././styles/colors'
 import Highlightable from './common/Highlightable'
@@ -7,26 +7,27 @@ import dimensions from '../styles/dimensions'
 
 const SelectStation = ({ style, stName, lineColor, onPress, onCancel }) => {
   return (
-    <View
-      style={{ ...styles.container, ...style }}
+    <TouchableWithoutFeedback
+      style={{ flex: 1 }}
       onPress={onPress}
     >
-      <View style={{ ...styles.line, backgroundColor: lineColor}} />
-      <Text numberOfLines={1} style={ styles.text }>{stName}</Text>
+      <View style={{ ...styles.container, ...style }}>
+        <View style={{ ...styles.line, backgroundColor: lineColor}} />
+        <Text numberOfLines={1} style={ styles.text }>{stName}</Text>
 
-      { onCancel
-        ?
-        <Highlightable
-          onPress={onCancel}
-        >
-          <FontAwesome5
-            name="times"
-            style={ styles.cancelIcon }
-          />
-        </Highlightable>
-        : null
-      }
-    </View>
+        { onCancel
+          &&
+          <Highlightable
+            onPress={onCancel}
+          >
+            <FontAwesome5
+              name="times"
+              style={ styles.cancelIcon }
+            />
+          </Highlightable>
+        }
+      </View>
+    </TouchableWithoutFeedback>
   )
 }
 

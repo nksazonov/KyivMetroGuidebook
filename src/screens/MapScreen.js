@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 import ZoomableMap from '../components/ZoomableMap'
 import { vw, vh } from 'react-native-css-vh-vw'
 import DestStationsBar from '../components/DestStationsBar'
 import SearchStationBlock from '../components/SearchStationBlock'
+import { Context as RouteContext } from '../context/RouteContext'
 
 const MapScreen = () => {
+    const { state: { selecting }, setSelecting } = useContext(RouteContext);
+
     return (
         <View style={styles.container}>
           <ZoomableMap />
           <DestStationsBar style={ styles.destStationsBar } />
-          <SearchStationBlock style={ styles.searchStationBlock } />
+          <SearchStationBlock style={[ styles.searchStationBlock, (selecting && { display: 'flex', bottom: 0 }) ]}
+            onCancel={() => setSelecting('')}
+          />
         </View>
     );
 }
@@ -33,8 +38,9 @@ const styles = StyleSheet.create({
     elevation: 24,
   },
   searchStationBlock: {
+    display: 'none',
     position: 'absolute',
-    bottom: 0,
+    bottom: -vh(90),
     width: vw(100),
     height: vh(90),
     elevation: 24,

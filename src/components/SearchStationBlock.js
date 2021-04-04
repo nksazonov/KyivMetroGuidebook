@@ -11,7 +11,7 @@ import Highlightable from './common/Highlightable'
 
 const stations = require('../data/stations.json');
 
-const SearchStationBlock = ({ style }) => {
+const SearchStationBlock = ({ style, onCancel }) => {
   const [ search, setSearch ] = useState('');
 
   return (
@@ -29,7 +29,7 @@ const SearchStationBlock = ({ style }) => {
         />
 
         <Highlightable
-          onPress={() => {}}
+          onPress={() => onCancel()}
           style={{ borderRadius: 5, height: 'auto', width: 'auto', padding: 5, left: 5 }}
           underlayColor={ colors.lightgrey }
           activeOpacity={1}

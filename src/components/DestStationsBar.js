@@ -8,7 +8,7 @@ import { Context as RouteContext } from '../context/RouteContext'
 import { getStation, getLine } from '../hooks/useStation'
 
 const DestStationsBar = ({ style }) => {
-  const { state: { departure, arrival }, setDeparture, setArrival } = useContext(RouteContext);
+  const { state: { departure, arrival }, setDeparture, setArrival, setSelecting } = useContext(RouteContext);
 
   return (
     <View style={{ ...styles.container, ...style }}>
@@ -17,6 +17,7 @@ const DestStationsBar = ({ style }) => {
         lineColor={ departure ? getLine(Math.floor(getStation(departure).id / 100)).color : colors.grey}
         style={ styles.selectSt }
         onCancel={ departure ? () => setDeparture(0) : null }
+        onPress={() => setSelecting('from')}
       />
 
       <FontAwesome5
@@ -29,6 +30,7 @@ const DestStationsBar = ({ style }) => {
         lineColor={ arrival ? getLine(Math.floor(getStation(arrival).id / 100)).color : colors.grey}
         style={ styles.selectSt }
         onCancel={ arrival ? () => setArrival(0) : null }
+        onPress={() => setSelecting('to')}
       />
     </View>
   )
