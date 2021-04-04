@@ -1,6 +1,6 @@
 import createDataContext from './createDataContext';
 
-const initialState = { departure: '', arrival: '', route: [], active: '' };
+const initialState = { departure: '', arrival: '', route: [], active: '', selecting: '' };
 
 const routeReducer = (state, action) => {
   switch(action.type) {
@@ -12,6 +12,9 @@ const routeReducer = (state, action) => {
 
     case 'set_active':
       return { ...state, active: action.payload };
+
+    case 'set_selecting':
+      return { ...state, selecting: action.payload };
 
     default:
       return state;
@@ -28,6 +31,10 @@ const setDeparture = dispatch => (stationId) => {
 
 const setArrival = dispatch => (stationId) => {
   dispatch({ type: 'set_arrival', payload: stationId });
+}
+
+const setSelecting = dispatch => (type) => {
+  dispatch({ type: 'set_selecting', payload: type })
 }
 
 const setRouteStation = (dispatch) => (stationId, departure, arrival) => {
@@ -52,6 +59,6 @@ const setRouteStation = (dispatch) => (stationId, departure, arrival) => {
 
 export const { Provider, Context } = createDataContext(
   routeReducer,
-  { setDeparture, setArrival, setRouteStation, setActive },
+  { setDeparture, setArrival, setRouteStation, setActive, setSelecting },
   initialState
 )
