@@ -3,18 +3,90 @@
     "name": "Святошинсько-Броварська",
     "short_name": "M1",
     "id": 1,
-    "color": "#e33123"
+    "color": "#e33123",
+    "train_intervals": [
+      {
+        "time": [0, 0],
+        "interval": 10
+      },{
+        "time": [6, 30],
+        "interval": 5
+      },{
+        "time": [7, 30],
+        "interval": 2
+      },{
+        "time": [10, 30],
+        "interval": 5
+      },{
+        "time": [17, 30],
+        "interval": 2
+      },{
+        "time": [19, 30],
+        "interval": 5
+      },{
+        "time": [22, 0],
+        "interval": 10
+      }
+    ]
   },
   {
     "name": "Оболонсько-Теремківська",
     "short_name": "M2",
     "id": 2,
-    "color": "#2382bf"
+    "color": "#2382bf",
+    "train_intervals": [
+      {
+        "time": [0, 0],
+        "interval": 10
+      },{
+        "time": [6, 30],
+        "interval": 5
+      },{
+        "time": [7, 30],
+        "interval": 2
+      },{
+        "time": [10, 30],
+        "interval": 5
+      },{
+        "time": [17, 30],
+        "interval": 2
+      },{
+        "time": [19, 30],
+        "interval": 5
+      },{
+        "time": [22, 0],
+        "interval": 10
+      }
+    ]
   },
   {
     "name": "Сирецько-Печерська",
     "short_name": "M3",
     "id": 3,
-    "color": "#2eb75d"
+    "color": "#2eb75d",
+    "train_intervals": [
+      {
+        "time": [0, 0],
+        "interval": 10
+      },{
+        "time": [6, 30],
+        "interval": 5
+      },{
+        "time": [7, 30],
+        "interval": 2
+      },{
+        "time": [10, 30],
+        "interval": 5
+      },{
+        "time": [17, 30],
+        "interval": 2
+      },{
+        "time": [19, 30],
+        "interval": 5
+      },{
+        "time": [22, 0],
+        "interval": 10
+      }
+    ]
   }
 ]
