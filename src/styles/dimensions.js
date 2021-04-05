@@ -7,5 +7,5 @@ export default {
   hugeFont: 32,
   bigFont: 25,
   mediumFont: 17,
-  smallFont: 12,
+  smallFont: 14,
 }
