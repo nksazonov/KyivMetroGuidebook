@@ -1,14 +1,21 @@
 import createDataContext from './createDataContext';
+import { buildRoute } from '../hooks/useRoute';
 
 const initialState = { departure: '', arrival: '', route: [], active: '', selecting: '' };
 
 const routeReducer = (state, action) => {
   switch(action.type) {
-    case 'set_departure':
-      return { ...state, departure: action.payload };
+    case 'set_departure': {
+      const newState = { ...state, departure: action.payload };
+      const route = buildRoute(newState.departure, newState.arrival);
+      return { ...newState, route };
+    }
 
-    case 'set_arrival':
-      return { ...state, arrival: action.payload };
+    case 'set_arrival': {
+      const newState = { ...state, arrival: action.payload };
+      const route = buildRoute(newState.departure, newState.arrival);
+      return { ...newState, route };
+    }
 
     case 'set_active':
       return { ...state, active: action.payload };
