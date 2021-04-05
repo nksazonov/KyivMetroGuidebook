@@ -1,0 +1,18 @@
+[
+  {
+    "from": 120,
+    "to": 217,
+    "time": 5,
+    "covered": true
+  },{
+    "from": 119,
+    "to": 314,
+    "time": 5,
+    "covered": true
+  },{
+    "from": 218,
+    "to": 315,
+    "time": 5,
+    "covered": true
+  }
+]
