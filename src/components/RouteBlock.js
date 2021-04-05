@@ -15,8 +15,6 @@ const RouteBlock = ({ style, route, onClose }) => {
   let arrTime = new Date(Date.now());
   arrTime.setMinutes(depTime.getMinutes() + routeDur);
 
-  console.log(arrTime.toTimeString());
-
   return (
     <View style={[ styles.container, style ]}>
       <Curtain style={{ position: 'absolute' }} color={ colors.lightgrey } />
