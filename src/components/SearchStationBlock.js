@@ -8,6 +8,7 @@ import colors from '../styles/colors'
 import dimensions from '../styles/dimensions'
 import { getLine } from '../hooks/useStation'
 import Highlightable from './common/Highlightable'
+import Curtain from './common/Curtain'
 
 const stations = require('../data/stations.json');
 
@@ -17,9 +18,7 @@ const SearchStationBlock = ({ style, onSelect, onCancel, searchText }) => {
   return (
     <View style={[ styles.container, style ]}>
       <View style={ styles.searchBlock }>
-        <View style={ styles.curtainContainer }>
-          <View style={ styles.curtainIcon } />
-        </View>
+        <Curtain style={{ position: 'absolute' }} color={ colors.lightgrey } />
 
         <SearchBar
           style={ styles.searchBar }
@@ -76,19 +75,6 @@ const styles = StyleSheet.create({
     borderBottomColor: colors.lightgrey,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  curtainContainer: {
-    width: vw(100),
-    flexDirection: 'row',
-    justifyContent: 'center',
-    position: 'absolute',
-    top: 7,
-  },
-  curtainIcon: {
-    width: 25,
-    height: 3,
-    borderRadius: 5,
-    backgroundColor: colors.lightgrey,
   },
   searchBar: {
     height: 40,
