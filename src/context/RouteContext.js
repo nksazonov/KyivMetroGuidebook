@@ -54,6 +54,12 @@ const setArrival = dispatch => (stationId, departure) => {
   dispatch({ type: 'set_arrival', payload: stationId });
 }
 
+const swapRouteStations = dispatch => (departure, arrival) => {
+  const temp = departure;
+  dispatch({ type: 'set_departure', payload: arrival });
+  dispatch({ type: 'set_arrival', payload: temp });
+}
+
 const setSelecting = dispatch => (type) => {
   dispatch({ type: 'set_selecting', payload: type })
 }
@@ -82,6 +88,6 @@ const setRouteStation = (dispatch) => (stationId, departure, arrival) => {
 
 export const { Provider, Context } = createDataContext(
   routeReducer,
-  { setDeparture, setArrival, setRouteStation, setActive, setSelecting },
+  { setDeparture, setArrival, setRouteStation, setActive, setSelecting, swapRouteStations },
   initialState
 )
