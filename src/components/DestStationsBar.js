@@ -8,9 +8,10 @@ import { Context as RouteContext } from '../context/RouteContext'
 import { getStation, getLine } from '../hooks/useStation'
 import { useSelecting } from '../hooks/useSelecting'
 import dimensions from '../styles/dimensions'
+import Highlightable from './common/Highlightable'
 
 const DestStationsBar = ({ style }) => {
-  const { state: { departure, arrival }, setDeparture, setArrival, setSelecting } = useContext(RouteContext);
+  const { state: { departure, arrival }, setDeparture, setArrival, setSelecting, swapRouteStations } = useContext(RouteContext);
 
   return (
     <View style={{ ...styles.container, ...style }}>
@@ -22,10 +23,17 @@ const DestStationsBar = ({ style }) => {
         onPress={() => setSelecting('from')}
       />
 
-      <FontAwesome5
-        name="exchange-alt"
-        style={ styles.icon }
-      />
+      <Highlightable
+        style={ styles.highlightable }
+        onPress={ () => swapRouteStations(departure, arrival) }
+        underlayColor={ colors.lightgrey }
+      >
+        <FontAwesome5
+          name="exchange-alt"
+          style={ styles.icon }
+        />
+      </Highlightable>
+      
 
       <SelectStation
         stName={ arrival ? getStation(arrival).name : useSelecting('to') }
@@ -44,6 +52,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: dimensions.smallPaddingSide,
     flexDirection: 'row',
     alignItems: 'stretch',
+  },
+  highlightable: {
+    flex: 1,
+    alignSelf: 'center',
   },
   icon: {
     flex: 1,
