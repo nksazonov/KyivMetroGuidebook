@@ -1,15 +1,21 @@
-import React, { useContext } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import React from 'react'
+import { View, Text, StyleSheet } from 'react-native'
 import { FontAwesome } from '@expo/vector-icons'
 
-import { Context as RouteContext } from '../context/RouteContext'
 import Highlightable from '../components/common/Highlightable'
 import dimensions from '../styles/dimensions'
 import colors from '../styles/colors'
 import Curtain from './common/Curtain'
 
-const RouteBlock = ({ style }) => {
-  const { state: { route }, setArrival } = useContext(RouteContext);
+const RouteBlock = ({ style, route, onClose }) => {
+
+  const routeDur = Math.ceil(route.weight);
+
+  let depTime = new Date(Date.now());
+  let arrTime = new Date(Date.now());
+  arrTime.setMinutes(depTime.getMinutes() + routeDur);
+
+  console.log(arrTime.toTimeString());
 
   return (
     <View style={[ styles.container, style ]}>
@@ -17,11 +23,11 @@ const RouteBlock = ({ style }) => {
 
       <View style={ styles.topContainer }>
         <Text style={ styles.time }>
-          10 хв
+          { routeDur } хв
         </Text>
 
         <Highlightable
-          onPress={ () => setArrival('') }
+          onPress={ () => onClose('') }
           activeOpacity={ .4 }
           underlayColor={ '#fff' }
         >
@@ -33,8 +39,8 @@ const RouteBlock = ({ style }) => {
       </View>
 
       <View style={ styles.topContainer }>
-        <Text style={ styles.timeSchedule }>
-          Date here
+        <Text style={ styles.timeSchedule }>{/* implements adding leading 0 if minutes < 10 */}
+          { depTime.getHours() + ':' + String(depTime.getMinutes()).padStart(2, "0") } - { arrTime.getHours() + ':' + String(arrTime.getMinutes()).padStart(2, "0") }
         </Text>
       </View>
     </View>
@@ -67,7 +73,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   timeSchedule: {
-    fontSize: dimensions.mediumFont,
+    fontSize: dimensions.smallFont,
     color: colors.grey
   }
 })

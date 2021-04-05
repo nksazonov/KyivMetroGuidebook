@@ -9,15 +9,22 @@ import { useSelecting, getSelectingFunc } from '../hooks/useSelecting'
 import RouteBlock from '../components/RouteBlock';
 
 const MapScreen = () => {
-    const { state: { selecting, departure, arrival }, setDeparture, setArrival, setSelecting } = useContext(RouteContext);
+    const { state: { selecting, departure, arrival, route }, setDeparture, setArrival, setSelecting } = useContext(RouteContext);
 
     return (
         <View style={styles.container}>
           <ZoomableMap />
 
-          <RouteBlock
-            style={ styles.routeBlock }
-          />
+          {
+            route.length
+            ?
+            <RouteBlock
+              style={ styles.routeBlock }
+              route={ route }
+              onClose={ setArrival }
+            />
+            : null
+          }
 
           <DestStationsBar style={ styles.destStationsBar } />
 
