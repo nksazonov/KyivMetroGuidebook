@@ -7,6 +7,7 @@ import colors from '.././styles/colors'
 import { Context as RouteContext } from '../context/RouteContext'
 import { getStation, getLine } from '../hooks/useStation'
 import { useSelecting } from '../hooks/useSelecting'
+import dimensions from '../styles/dimensions'
 
 const DestStationsBar = ({ style }) => {
   const { state: { departure, arrival }, setDeparture, setArrival, setSelecting } = useContext(RouteContext);
@@ -39,14 +40,14 @@ const DestStationsBar = ({ style }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 7,
-    paddingHorizontal: 10,
+    paddingVertical: dimensions.paddingSide / 2,
+    paddingHorizontal: dimensions.smallPaddingSide,
     flexDirection: 'row',
     alignItems: 'stretch',
   },
   icon: {
     flex: 1,
-    fontSize: 15,
+    fontSize: dimensions.mediumFont - 2, //icon-dependent
     alignSelf: 'center',
     textAlign: 'center',
     color: colors.grey,
