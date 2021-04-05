@@ -11,7 +11,6 @@ for (const path of pathsData) {
 
 export function buildRoute(departure, arrival) {
   if (departure && arrival && departure !== arrival) {
-    console.log(paths.shortestPath(departure.toString(), arrival.toString()).weight);
     return paths.shortestPath(departure.toString(), arrival.toString());
   } else return [];
 }
