@@ -6,6 +6,7 @@ import DestStationsBar from '../components/DestStationsBar'
 import SearchStationBlock from '../components/SearchStationBlock'
 import { Context as RouteContext } from '../context/RouteContext'
 import { useSelecting, getSelectingFunc } from '../hooks/useSelecting'
+import RouteBlock from '../components/RouteBlock';
 
 const MapScreen = () => {
     const { state: { selecting, departure, arrival }, setDeparture, setArrival, setSelecting } = useContext(RouteContext);
@@ -13,19 +14,26 @@ const MapScreen = () => {
     return (
         <View style={styles.container}>
           <ZoomableMap />
+
+          <RouteBlock
+            style={ styles.routeBlock }
+          />
+
           <DestStationsBar style={ styles.destStationsBar } />
 
           {
             selecting
             ?
             //TODO: slide from&to bottom animation
-            <SearchStationBlock style={[ styles.searchStationBlock, (selecting && { display: 'flex', bottom: 0 }) ]}
+            <SearchStationBlock
+              style={[ styles.searchStationBlock, (selecting && { display: 'flex', bottom: 0 }) ]}
               onCancel={() => setSelecting('')}
               searchText={ useSelecting(selecting) }
               onSelect={ getSelectingFunc(selecting, (selected) => setDeparture(selected, arrival), (selected) => setArrival(selected, departure)) }
             />
             : null
           }
+
           
         </View>
     );
@@ -55,6 +63,16 @@ const styles = StyleSheet.create({
     width: vw(100),
     height: vh(90),
     elevation: 24,
+  },
+  routeBlock: {
+    //display: 'none',
+    position: 'absolute',
+    //bottom: -vh(90),
+    bottom: 0,
+    width: vw(100),
+    height: 150,
+    paddingBottom: vh(13.5),
+    elevation: 23,
   }
 })
 
