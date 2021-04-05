@@ -11,7 +11,7 @@ export function useSelecting(selecting) {
   }
 }
 
-export function getSelectionFunc(selecting, fromFunc, toFunc) {
+export function getSelectingFunc(selecting, fromFunc, toFunc) {
   switch (selecting) {
     case 'from':
       return fromFunc;

@@ -5,10 +5,10 @@ import { vw, vh } from 'react-native-css-vh-vw'
 import DestStationsBar from '../components/DestStationsBar'
 import SearchStationBlock from '../components/SearchStationBlock'
 import { Context as RouteContext } from '../context/RouteContext'
-import { useSelecting, getSelectionFunc } from '../hooks/useSelecting'
+import { useSelecting, getSelectingFunc } from '../hooks/useSelecting'
 
 const MapScreen = () => {
-    const { state: { selecting }, setDeparture, setArrival, setSelecting } = useContext(RouteContext);
+    const { state: { selecting, departure, arrival }, setDepartureForced, setArrivalForced, setSelecting } = useContext(RouteContext);
 
     return (
         <View style={styles.container}>
@@ -22,7 +22,7 @@ const MapScreen = () => {
             <SearchStationBlock style={[ styles.searchStationBlock, (selecting && { display: 'flex', bottom: 0 }) ]}
               onCancel={() => setSelecting('')}
               searchText={ useSelecting(selecting) }
-              onSelect={ getSelectionFunc(selecting, setDeparture, setArrival) }
+              onSelect={ getSelectingFunc(selecting, (selected) => setDepartureForced(selected, arrival), (selected) => setArrivalForced(selected, departure)) }
             />
             : null
           }
