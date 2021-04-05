@@ -1,33 +1,36 @@
 import React from 'react'
-import { View, Text, TouchableWithoutFeedback, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons'
 import colors from '.././styles/colors'
 import Highlightable from './common/Highlightable'
-import dimensions from '../styles/dimensions'
+import Ripple from 'react-native-material-ripple'
 
 const SelectStation = ({ style, stName, lineColor, onPress, onCancel }) => {
   return (
-    <TouchableWithoutFeedback
-      style={{ flex: 1 }}
-      onPress={onPress}
-    >
-      <View style={{ ...styles.container, ...style }}>
+    <View style={{ ...styles.container, ...style }}>
+      <Ripple
+        style={ styles.ripple }
+        onPress={onPress}
+        rippleColor={ colors.grey }
+        rippleOpacity={ .7 }
+      >
+
         <View style={{ ...styles.line, backgroundColor: lineColor}} />
         <Text numberOfLines={1} style={ styles.text }>{stName}</Text>
+      </Ripple>
 
-        { onCancel
-          &&
-          <Highlightable
-            onPress={onCancel}
-          >
-            <FontAwesome5
-              name="times"
-              style={ styles.cancelIcon }
-            />
-          </Highlightable>
-        }
-      </View>
-    </TouchableWithoutFeedback>
+      { onCancel
+        &&
+        <Highlightable
+          onPress={onCancel}
+        >
+          <FontAwesome5
+            name="times"
+            style={ styles.cancelIcon }
+          />
+        </Highlightable>
+      }
+    </View>
   )
 }
 
@@ -38,12 +41,17 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 10,
-    paddingRight: 5,
     borderRadius: 5,
     backgroundColor: colors.lightgrey,
     overflow: 'hidden',
     position: 'relative'
+  },
+  ripple: {
+    flex: 1, 
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 10,
+    paddingRight: 0
   },
   line: {
     width: 10,
