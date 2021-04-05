@@ -25,12 +25,7 @@ const setActive = dispatch => (stationId) => {
   dispatch({ type: 'set_active', payload: stationId });
 }
 
-const setDeparture = dispatch => (stationId) => {
-  dispatch({ type: 'set_selecting', payload: '' });
-  dispatch({ type: 'set_departure', payload: stationId });
-}
-
-const setDepartureForced = dispatch => (stationId, arrival) => {
+const setDeparture = dispatch => (stationId, arrival) => {
   dispatch({ type: 'set_selecting', payload: '' });
 
   //forced set departure makes equal arrival set to null
@@ -41,20 +36,15 @@ const setDepartureForced = dispatch => (stationId, arrival) => {
   dispatch({ type: 'set_departure', payload: stationId });
 }
 
-const setArrival = dispatch => (stationId) => {
+const setArrival = dispatch => (stationId, departure) => {
   dispatch({ type: 'set_arrival', payload: stationId });
-  dispatch({ type: 'set_selecting', payload: '' });
-}
-
-const setArrivalForced = dispatch => (stationId, departure) => {
-  dispatch({ type: 'set_selecting', payload: '' });
 
   //forced set arrival makes equal departure set to null
   if (stationId === departure) {
     dispatch({ type: 'set_departure', payload: '' });
   }
 
-  dispatch({ type: 'set_arrival', payload: stationId });
+  dispatch({ type: 'set_selecting', payload: '' });
 }
 
 const setSelecting = dispatch => (type) => {
@@ -83,6 +73,6 @@ const setRouteStation = (dispatch) => (stationId, departure, arrival) => {
 
 export const { Provider, Context } = createDataContext(
   routeReducer,
-  { setDeparture, setDepartureForced, setArrival, setArrivalForced, setRouteStation, setActive, setSelecting },
+  { setDeparture, setArrival, setRouteStation, setActive, setSelecting },
   initialState
 )

@@ -8,7 +8,7 @@ import { Context as RouteContext } from '../context/RouteContext'
 import { useSelecting, getSelectingFunc } from '../hooks/useSelecting'
 
 const MapScreen = () => {
-    const { state: { selecting, departure, arrival }, setDepartureForced, setArrivalForced, setSelecting } = useContext(RouteContext);
+    const { state: { selecting, departure, arrival }, setDeparture, setArrival, setSelecting } = useContext(RouteContext);
 
     return (
         <View style={styles.container}>
@@ -22,7 +22,7 @@ const MapScreen = () => {
             <SearchStationBlock style={[ styles.searchStationBlock, (selecting && { display: 'flex', bottom: 0 }) ]}
               onCancel={() => setSelecting('')}
               searchText={ useSelecting(selecting) }
-              onSelect={ getSelectingFunc(selecting, (selected) => setDepartureForced(selected, arrival), (selected) => setArrivalForced(selected, departure)) }
+              onSelect={ getSelectingFunc(selecting, (selected) => setDeparture(selected, arrival), (selected) => setArrival(selected, departure)) }
             />
             : null
           }
