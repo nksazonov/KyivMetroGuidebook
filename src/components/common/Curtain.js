@@ -2,7 +2,7 @@ import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { vw } from 'react-native-css-vh-vw'
 
-const Curtain = ({ style, color, width }) => {
+const Curtain = ({ style, color = 'black', width = 25 }) => {
   return (
     <View style={[ styles.curtainContainer, style ]}>
       <View style={[ styles.curtainIcon, { backgroundColor: color, width } ]} />
@@ -18,10 +18,8 @@ const styles = StyleSheet.create({
     top: 7,
   },
   curtainIcon: {
-    width: 25,
     height: 3,
     borderRadius: 5,
-    backgroundColor: 'black',
   },
 })
 
