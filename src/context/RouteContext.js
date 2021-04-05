@@ -44,14 +44,14 @@ const setDeparture = dispatch => (stationId, arrival) => {
 }
 
 const setArrival = dispatch => (stationId, departure) => {
-  dispatch({ type: 'set_arrival', payload: stationId });
+  dispatch({ type: 'set_selecting', payload: '' });
 
   //forced set arrival makes equal departure set to null
   if (stationId === departure) {
     dispatch({ type: 'set_departure', payload: '' });
   }
 
-  dispatch({ type: 'set_selecting', payload: '' });
+  dispatch({ type: 'set_arrival', payload: stationId });
 }
 
 const setSelecting = dispatch => (type) => {
@@ -59,6 +59,8 @@ const setSelecting = dispatch => (type) => {
 }
 
 const setRouteStation = (dispatch) => (stationId, departure, arrival) => {
+  dispatch({ type: 'set_selecting', payload: '' });
+
   if (!departure) {
     if (stationId === arrival)
      return;
