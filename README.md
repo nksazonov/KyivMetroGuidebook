@@ -1,6 +1,14 @@
 # KyivMetroGuidebook
 Mobile app for navigation in Kyiv Metro.
 
+# Features (TODO)
+* Get travel time and info about route between stations
+* See schedule of last metro trains / trams
+* See schedule of stations
+* See schemas of stations
+* See schemas of exits
+* Share exit of station you want to meet near
+
 # Glossary
 **KMG** - Kyiv Metro Guidebook
 
